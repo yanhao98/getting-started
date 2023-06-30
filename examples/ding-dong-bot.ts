@@ -50,15 +50,16 @@ async function onMessage (msg: Message) {
 
 const bot = WechatyBuilder.build({
   name: 'ding-dong-bot',
-  /* puppet: 'wechaty-puppet-padlocal',
+  puppet: 'wechaty-puppet-padlocal',
   puppetOptions: {
-    // token: 'puppet_padlocal_bf7f60c92b0c48119d0b4a1cf2a40023',
-    token: 'bf7f60c92b0c48119d0b4a1cf2a40023',
-  }, */
-  puppet: 'wechaty-puppet-wechat',
+    // http://pad-local.com/#/tokens
+    token: 'puppet_padlocal_bf7f60c92b0c48119d0b4a1cf2a40023',
+    // token: 'bf7f60c92b0c48119d0b4a1cf2a40023',
+  },
+  /* puppet: 'wechaty-puppet-wechat',
   puppetOptions: {
     uos: true,  // 开启uos协议
-  },
+  }, */
 })
 
 bot.on('scan',    onScan)
