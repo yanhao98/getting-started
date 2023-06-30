@@ -50,30 +50,15 @@ async function onMessage (msg: Message) {
 
 const bot = WechatyBuilder.build({
   name: 'ding-dong-bot',
-  /**
-   * How to set Wechaty Puppet Provider:
-   *
-   *  1. Specify a `puppet` option when instantiating Wechaty. (like `{ puppet: 'wechaty-puppet-whatsapp' }`, see below)
-   *  1. Set the `WECHATY_PUPPET` environment variable to the puppet NPM module name. (like `wechaty-puppet-whatsapp`)
-   *
-   * You can use the following providers locally:
-   *  - wechaty-puppet-wechat (web protocol, no token required)
-   *  - wechaty-puppet-whatsapp (web protocol, no token required)
-   *  - wechaty-puppet-padlocal (pad protocol, token required)
-   *  - etc. see: <https://wechaty.js.org/docs/puppet-providers/>
-   */
-  // puppet: 'wechaty-puppet-whatsapp'
-
-  /**
-   * You can use wechaty puppet provider 'wechaty-puppet-service'
-   *   which can connect to remote Wechaty Puppet Services
-   *   for using more powerful protocol.
-   * Learn more about services (and TOKEN) from https://wechaty.js.org/docs/puppet-services/
-   */
-  // puppet: 'wechaty-puppet-service'
-  // puppetOptions: {
-  //   token: 'xxx',
-  // }
+  /* puppet: 'wechaty-puppet-padlocal',
+  puppetOptions: {
+    // token: 'puppet_padlocal_bf7f60c92b0c48119d0b4a1cf2a40023',
+    token: 'bf7f60c92b0c48119d0b4a1cf2a40023',
+  }, */
+  puppet: 'wechaty-puppet-wechat',
+  puppetOptions: {
+    uos: true,  // 开启uos协议
+  },
 })
 
 bot.on('scan',    onScan)
