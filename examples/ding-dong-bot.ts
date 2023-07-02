@@ -10,6 +10,7 @@ import "dotenv/config.js";
 import { Contact, Message, ScanStatus, WechatyBuilder, log } from "wechaty";
 
 import qrcodeTerminal from "qrcode-terminal";
+import { translate } from "./chat";
 
 // log.level("silly");
 // log.level("silent");
@@ -47,6 +48,16 @@ async function onMessage(msg: Message) {
 
   if (msg.text() === "ding") {
     await msg.say("dong");
+  }
+  if (msg.text().startsWith(":t ")) {
+    const text = msg.text().slice(3);
+    try {
+      const parts = await translate(text);
+      await msg.say(parts.join("\n"));
+    } catch (error: any) {
+      const errorMessage = error.message || error;
+      await msg.say(errorMessage);
+    }
   }
 }
 
